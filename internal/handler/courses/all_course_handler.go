@@ -11,11 +11,11 @@ import (
 func AllCourseHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		l := courses.NewAllCourseLogic(r.Context(), svcCtx)
-		err := l.AllCourse()
+		resp, err := l.AllCourse()
 		if err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 		} else {
-			httpx.Ok(w)
+			httpx.OkJsonCtx(r.Context(), w, resp)
 		}
 	}
 }

@@ -8,4 +8,8 @@ type Config struct {
 		AccessSecret string
 		AccessExpire int64
 	}
+	Database struct {
+		Type   string
+		Source string
+	}
 }

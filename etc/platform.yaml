@@ -7,3 +7,6 @@ Auth:
   AccessSecret: your_secret_key  # JWT 密钥
   AccessExpire: 12800  # JWT 密钥
   # 其他相关配置
+Database:
+  Type: PostgreSQL
+  Source: ""

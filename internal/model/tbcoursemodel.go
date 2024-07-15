@@ -10,6 +10,7 @@ type (
 	TbCourseModel interface {
 		tbCourseModel
 		withSession(session sqlx.Session) TbCourseModel
+		FindOnlineCourses(status int64) ([]*TbCourse, error)
 	}
 
 	customTbCourseModel struct {
@@ -26,4 +27,15 @@ func NewTbCourseModel(conn sqlx.SqlConn) TbCourseModel {
 
 func (m *customTbCourseModel) withSession(session sqlx.Session) TbCourseModel {
 	return NewTbCourseModel(sqlx.NewSqlConnFromSession(session))
+}
+
+// FindOnlineCourses 根据状态查询在线的课程
+func (m *customTbCourseModel) FindOnlineCourses(status int64) ([]*TbCourse, error) {
+	var courses []*TbCourse
+	query := `select * from tb_course where start_status = $1`
+	err := m.conn.QueryRows(&courses, query, status)
+	if err != nil {
+		return nil, err
+	}
+	return courses, nil
 }

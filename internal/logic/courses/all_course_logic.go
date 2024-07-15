@@ -4,6 +4,8 @@ import (
 	"context"
 
 	"github.com/WTFAcademy/platform/internal/svc"
+	"github.com/WTFAcademy/platform/internal/types"
+
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -21,8 +23,7 @@ func NewAllCourseLogic(ctx context.Context, svcCtx *svc.ServiceContext) *AllCour
 	}
 }
 
-func (l *AllCourseLogic) AllCourse() error {
+func (l *AllCourseLogic) AllCourse() (resp *types.CourseListResp, err error) {
 	// todo: add your logic here and delete this line
-
-	return nil
+	return
 }
