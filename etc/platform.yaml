@@ -1,0 +1,9 @@
+Name: platform
+Host: 0.0.0.0
+Port: 8888
+Auth:
+  Enabled: true
+  Type: jwt  # 或者其他你需要的类型
+  AccessSecret: your_secret_key  # JWT 密钥
+  AccessExpire: 12800  # JWT 密钥
+  # 其他相关配置

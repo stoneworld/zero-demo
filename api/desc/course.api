@@ -1,0 +1,29 @@
+syntax = "v1"
+
+type GetUserCourseLessonReq {
+    CourseId   string  `path:"course_id"`
+	LessonId   string  `path:"lesson_id"`
+}
+
+// 定义 HTTP 服务
+@server (
+	// 代表当前 service 代码块下的路由生成代码时都会被放到 login 目录下
+	group: courses
+)
+
+service platform {
+	@handler allCourse
+	get /courses
+
+	@handler GetCourseQuizList
+	get /courses/:course_id/lesson
+
+	@handler GetUserCourseLesson
+	get /courses/:course_id/user_lessons/:lesson_id (GetUserCourseLessonReq)
+
+	@handler GetCourseInfo
+	get /courses/:course_id
+}
+
+
+
