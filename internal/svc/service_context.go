@@ -8,6 +8,10 @@ import (
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
 )
 
+var (
+	svcCtx *ServiceContext
+)
+
 type ServiceContext struct {
 	Config      config.Config
 	DB          sqlx.SqlConn
@@ -25,4 +29,15 @@ func NewServiceContext(c config.Config) *ServiceContext {
 		ModelCourse: &modelCourse,
 		BizCourse:   bizCourse,
 	}
+}
+
+func InitSvcCtx(c config.Config) {
+	svcCtx = NewServiceContext(c)
+}
+
+func GetSvcCtx() *ServiceContext {
+	if svcCtx == nil {
+		panic("svcCtx is nil")
+	}
+	return svcCtx
 }
