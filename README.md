@@ -34,4 +34,15 @@ goctl model pg datasource --url="postgres://username:root@host:5432/postgres?ssl
 
 5. 编写代码逻辑。
 
-6. 服务发布。
+6. 服务运行。
+
+> go run platform.go run
+
+7. 执行一次性任务或者定时任务
+
+自行增加任务，类似这样：
+![alt text](image-4.png)
+
+> go run platform.go task
+
+如果是定时任务，需要服务器上增加 cron 命令
