@@ -12,8 +12,8 @@ type Course struct {
 	RoutePath    string `json:"route_path"`
 	Description  string `json:"description"`
 	CoverImg     string `json:"cover_img"`
-	TotalScore   int    `json:"total_score"`
-	UserCnt      int    `json:"user_cnt"`
+	TotalScore   int64  `json:"total_score"`
+	UserCnt      int64  `json:"user_cnt"`
 	StartStatus  int    `json:"start_status"`
 	ShareURL     string `json:"share_url"`
 	ExtendedInfo string `json:"extended_info"`

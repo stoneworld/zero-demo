@@ -24,6 +24,10 @@ func NewAllCourseLogic(ctx context.Context, svcCtx *svc.ServiceContext) *AllCour
 }
 
 func (l *AllCourseLogic) AllCourse() (resp *types.CourseListResp, err error) {
-	// todo: add your logic here and delete this line
-	return
+	courseList := l.svcCtx.BizCourse.GetCourseList(l.ctx, 1)
+	return &types.CourseListResp{
+		Data: types.CourseList{
+			List: courseList,
+		},
+	}, nil
 }

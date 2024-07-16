@@ -8,5 +8,5 @@ Auth:
   AccessExpire: 12800  # JWT 密钥
   # 其他相关配置
 Database:
-  Type: PostgreSQL
-  Source: ""
+  Type: postgres
+  Source: "" # 数据库连接字符串
